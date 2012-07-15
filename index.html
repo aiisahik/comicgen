@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>YouComGen</title>
+  <head>
+      <link href="/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+      <link href="/css/main.css" media="all" rel="stylesheet" type="text/css" />
+      <link href="/css/jquery-ui-1.8.21.custom.css" media="all" rel="stylesheet" type="text/css" />
+      <script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+      <script src="/js/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>      
+      <script src="/js/json2.js" type="text/javascript"></script>
+      <script src="/js/json_parse.js" type="text/javascript"></script>
+      <script src="/js/json_parse_state.js" type="text/javascript"></script>
+      <script src="/js/underscore.js" type="text/javascript"></script>
+      <script src="/js/backbone.js" type="text/javascript"></script>
+      <script src="/js/app.js" type="text/javascript"></script>
+     
+      <script type="text/javascript" src="js/swfobject.js"></script>
+		
+		<script src="https://www.youtube.com/player_api" type="text/javascript"></script>
+
+  </head>
+
+    <script type="text/template" id="player-template">
+		<div id="youtubeplayer">
+			<object type="application/x-shockwave-flash" 
+				id="myytflashplayer" 
+				data="https://www.youtube.com/apiplayer?video_id=<%= video_id %>&amp;version=3&amp;enablejsapi=1&amp;playerapiid=myytflashplayer" width="640" height="360">
+				<param name="allowScriptAccess" value="always">
+				<param name="bgcolor" value="#cccccc">
+			</object>
+		</div>
+	</script>
+
+	<script type="text/template" id="image-template">
+    	<li class="span6">
+          <div class="thumbnail">
+            <img src="YouTube/<%= filename %>" alt="">
+            <input type="text" class="span5" placeholder="type in dialogue" id="image_<%= id %>">
+          </div>
+		</li>
+    
+	</script>
+
+
+<body>
+    <div class="container">
+    	<div class="row-fluid">
+    		<div class="span2"></div>
+    		<div class="span10">
+
+		    	<br>
+		    	<h2> YouComGen </h2>
+		    	<br>
+				<h4> Generate your own comic strips from YouTube </h4>
+			</div>
+		</div>
+    	<div class="row-fluid" id="capture">
+    		<div class="span2"></div>
+    		<div class="span6">
+		      
+					<input type="text" class="span8" placeholder="type in the youtube video link" id="youtubeinput">
+					<h3 id="video_title"></h3>
+					<div id="status" class="alert alert-success"></div>
+					
+					<br>
+					<div id="youtubeplayer"></div>
+					<div id="timestamps"></div>
+
+      		</div>
+      		<div class="span4">
+      			<button id="snapshot_button" class="btn btn-large">Take Snapshot</button><br>
+      			<button id="done_button" class="btn btn-primary btn-large" >Done</button>
+				
+      		</div>
+		</div>
+		
+		<div id="editor">
+			<ul class="thumbnails" id="thumbs">
+			</ul>
+
+			<button id="process_button" class="btn btn-success btn-large" >Process</button>	
+		</div>
+
+	</div>
+
+
+
+  </body>
+</html>
+
